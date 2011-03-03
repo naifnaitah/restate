@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="DBEntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=87.106.252.12;Persist Security Info=True;User ID=Group2" SettingsObjectName="ESDS.Properties.Settings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="RealEstate.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Passwd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Town/City]" Member="Town_City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="User_Users_Subscription" Member="Users_Subscriptions" ThisKey="UserID" OtherKey="UserID" Type="Users_Subscription" />
+    </Type>
+  </Table>
+  <Table Name="RealEstate.Users_Subscriptions" Member="Users_Subscriptions">
+    <Type Name="Users_Subscription">
+      <Column Name="SubscriptionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyTypeID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PropertyLocation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyRadius" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyMinPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PropertyMaxPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PropertyRoomMin" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PropertyRoomMax" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_Users_Subscription" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="RealEstate.Properties" Member="Properties">
+    <Type Name="Property">
+      <Column Name="PropertyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[PropertyTown/City]" Member="PropertyTown_City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyPostCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyCounty" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PropertyDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PropertyPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PropertyTenureID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PropertyTypeID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

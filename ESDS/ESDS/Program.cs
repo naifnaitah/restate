@@ -9,6 +9,8 @@ namespace ESDS
     {
         static void Main(string[] args)
         {
+            SubscriptionMailer mailer = new SubscriptionMailer();
+            mailer.Deliver();
         }
     }
 }
