@@ -1,4 +1,5 @@
-*.config
+WebSite/Web.config
+*/App.config
 
 _ReSharper*
 
